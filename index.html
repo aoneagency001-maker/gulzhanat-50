@@ -452,7 +452,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     <div class="hero-scroll"><span>scroll</span><div class="scroll-arrow"></div></div>
   </section>
 
-  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/sakura_53.png" alt=""></div>
+  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/roses_corner.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- INVITATION -->
@@ -470,7 +470,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     </div>
   </section>
 
-  <div class="section-flower section-flower--left section-flower--flip reveal"><img src="assets/flowers/sakura_52.png" alt=""></div>
+  <div class="section-flower section-flower--left reveal"><img src="assets/flowers/sakura_52.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- COUNTDOWN (FLIP) -->
@@ -489,7 +489,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     </div>
   </section>
 
-  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/sakura_53.png" alt=""></div>
+  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/roses_2.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- CALENDAR -->
@@ -501,7 +501,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     </div>
   </section>
 
-  <div class="section-flower section-flower--left reveal"><img src="assets/flowers/sakura_52.png" alt=""></div>
+  <div class="section-flower section-flower--left reveal"><img src="assets/flowers/sakura_53.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- VENUE -->
@@ -525,7 +525,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     </div>
   </section>
 
-  <div class="section-flower section-flower--right section-flower--flip reveal"><img src="assets/flowers/sakura_53.png" alt=""></div>
+  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/roses_1.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- RSVP -->
@@ -622,15 +622,11 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
 /* ===== FLYING BUTTERFLIES (GIF) ===== */
 (function(){
   var c=document.getElementById('butterflies');
-  var gifs=['assets/butterfly_2.gif','assets/butterfly_3.gif'];
-  var sizes=[[280,220],[240,240]];
-  for(var i=0;i<gifs.length;i++){
-    var el=document.createElement('div');
-    el.className='butterfly-gif';
-    el.style.cssText='left:'+((i+1)*25)+'%;top:'+((i+1)*20)+'%;width:'+sizes[i][0]+'px;height:'+sizes[i][1]+'px;opacity:.6;';
-    el.innerHTML='<img src="'+gifs[i]+'" alt="">';
-    c.appendChild(el);
-  }
+  var el=document.createElement('div');
+  el.className='butterfly-gif';
+  el.style.cssText='left:15%;top:25%;width:300px;height:240px;opacity:.55;';
+  el.innerHTML='<img src="assets/butterfly_2.gif" alt="">';
+  c.appendChild(el);
 })();
 
 /* ===== PARTICLES ===== */
