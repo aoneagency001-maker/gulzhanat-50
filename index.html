@@ -90,14 +90,15 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
   100%{transform:translate(var(--drift),105vh) rotate(var(--spin));opacity:0}
 }
 
-/* ===== FLYING BUTTERFLIES ===== */
-#butterflies{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:4}
-.butterfly-gif{
-  position:absolute;
-  pointer-events:none;
+/* ===== BUTTERFLIES ON HERO ===== */
+.hero-butterflies{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3;
 }
-.butterfly-gif img{
-  width:100%;height:100%;
+.hero-butterflies img{
+  position:absolute;
+  width:280px;height:auto;
+  top:10%;left:10%;
+  opacity:.5;
   object-fit:contain;
 }
 
@@ -389,7 +390,6 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
 
 <!-- FALLING PETALS -->
 <div id="petals" aria-hidden="true"></div>
-<div id="butterflies" aria-hidden="true"></div>
 
 <!-- 3D ENVELOPE -->
 <div class="envelope-scene" id="envelopeScene">
@@ -435,6 +435,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
   <!-- HERO -->
   <section class="section hero" id="hero">
     <div class="hero-particles" id="particles"></div>
+    <div class="hero-butterflies" aria-hidden="true"><img src="assets/butterfly_2.gif" alt=""></div>
     <div class="hero-floral hero-floral--tr" aria-hidden="true"><img src="assets/flowers/sakura_39.png" alt=""></div>
     <div class="hero-floral hero-floral--bl" aria-hidden="true"><img src="assets/flowers/sakura_33.png" alt=""></div>
     <div class="hero-petals" aria-hidden="true">
@@ -619,15 +620,6 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
   }
 })();
 
-/* ===== FLYING BUTTERFLIES (GIF) ===== */
-(function(){
-  var c=document.getElementById('butterflies');
-  var el=document.createElement('div');
-  el.className='butterfly-gif';
-  el.style.cssText='left:15%;top:25%;width:300px;height:240px;opacity:.55;';
-  el.innerHTML='<img src="assets/butterfly_2.gif" alt="">';
-  c.appendChild(el);
-})();
 
 /* ===== PARTICLES ===== */
 (function(){
