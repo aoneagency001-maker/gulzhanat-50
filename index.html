@@ -92,66 +92,13 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
 
 /* ===== FLYING BUTTERFLIES ===== */
 #butterflies{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:4}
-.butterfly{
+.butterfly-gif{
   position:absolute;
-  animation:bflyPath ease-in-out infinite;
-  filter:drop-shadow(0 2px 6px rgba(107,29,58,.12));
-  perspective:200px;
+  pointer-events:none;
 }
-.butterfly svg{width:100%;height:100%}
-.bfly-body{
-  animation:bflyBob 2s ease-in-out infinite;
-}
-.wing-l{
-  transform-origin:50% 50%;
-  animation:bflyFlapL var(--flap) ease-in-out infinite;
-}
-.wing-r{
-  transform-origin:50% 50%;
-  animation:bflyFlapR var(--flap) ease-in-out infinite;
-}
-@keyframes bflyFlapL{
-  0%,100%{transform:scaleX(1)}
-  50%{transform:scaleX(.15)}
-}
-@keyframes bflyFlapR{
-  0%,100%{transform:scaleX(1)}
-  50%{transform:scaleX(.15)}
-}
-@keyframes bflyBob{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-3px)}
-}
-@keyframes bflyPath{
-  0%{transform:translate(0,0) rotate(3deg);opacity:0}
-  3%{opacity:.75}
-  15%{transform:translate(12vw,-12vh) rotate(-10deg)}
-  30%{transform:translate(-8vw,-25vh) rotate(8deg)}
-  45%{transform:translate(18vw,-40vh) rotate(-6deg)}
-  60%{transform:translate(-5vw,-55vh) rotate(12deg)}
-  75%{transform:translate(10vw,-70vh) rotate(-8deg)}
-  90%{transform:translate(-3vw,-88vh) rotate(5deg)}
-  97%{opacity:.4}
-  100%{transform:translate(8vw,-105vh) rotate(-3deg);opacity:0}
-}
-@keyframes bflyPath2{
-  0%{transform:translate(0,0) rotate(-5deg);opacity:0}
-  3%{opacity:.7}
-  20%{transform:translate(-15vw,-18vh) rotate(12deg)}
-  40%{transform:translate(10vw,-35vh) rotate(-8deg)}
-  60%{transform:translate(-12vw,-52vh) rotate(6deg)}
-  80%{transform:translate(8vw,-72vh) rotate(-10deg)}
-  97%{opacity:.35}
-  100%{transform:translate(-6vw,-105vh) rotate(4deg);opacity:0}
-}
-@keyframes bflyPath3{
-  0%{transform:translate(0,0) rotate(8deg);opacity:0}
-  4%{opacity:.65}
-  25%{transform:translate(8vw,-20vh) rotate(-4deg)}
-  50%{transform:translate(-15vw,-45vh) rotate(10deg)}
-  75%{transform:translate(12vw,-68vh) rotate(-6deg)}
-  96%{opacity:.3}
-  100%{transform:translate(4vw,-105vh) rotate(2deg);opacity:0}
+.butterfly-gif img{
+  width:100%;height:100%;
+  object-fit:contain;
 }
 
 /* ===== BOTTOM BAR ===== */
@@ -505,7 +452,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     <div class="hero-scroll"><span>scroll</span><div class="scroll-arrow"></div></div>
   </section>
 
-  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/pink_corner_sm.png" alt=""></div>
+  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/sakura_53.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- INVITATION -->
@@ -523,7 +470,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     </div>
   </section>
 
-  <div class="section-flower section-flower--left reveal"><img src="assets/flowers/rose_png_659.png" alt=""></div>
+  <div class="section-flower section-flower--left section-flower--flip reveal"><img src="assets/flowers/sakura_52.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- COUNTDOWN (FLIP) -->
@@ -542,7 +489,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     </div>
   </section>
 
-  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/rose_png_650.png" alt=""></div>
+  <div class="section-flower section-flower--right reveal"><img src="assets/flowers/sakura_53.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- CALENDAR -->
@@ -554,7 +501,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     </div>
   </section>
 
-  <div class="section-flower section-flower--left reveal"><img src="assets/flowers/pink_corner_flip.png" alt=""></div>
+  <div class="section-flower section-flower--left reveal"><img src="assets/flowers/sakura_52.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- VENUE -->
@@ -578,7 +525,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     </div>
   </section>
 
-  <div class="section-flower section-flower--right section-flower--flip reveal"><img src="assets/flowers/rose_png_659.png" alt=""></div>
+  <div class="section-flower section-flower--right section-flower--flip reveal"><img src="assets/flowers/sakura_53.png" alt=""></div>
   <div class="ornament-divider"><img src="assets/ornament2.webp" alt=""></div>
 
   <!-- RSVP -->
@@ -672,39 +619,16 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
   }
 })();
 
-/* ===== FLYING BUTTERFLIES ===== */
+/* ===== FLYING BUTTERFLIES (GIF) ===== */
 (function(){
   var c=document.getElementById('butterflies');
-  var butterflies=[
-    {// розовая с прожилками
-      sz:38,flap:.35,
-      svg:'<svg viewBox="0 0 60 50"><defs><linearGradient id="bw1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0A0B8"/><stop offset="100%" stop-color="#D06080"/></linearGradient><linearGradient id="bw1b" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#E890A8"/><stop offset="100%" stop-color="#C85878"/></linearGradient></defs><g class="bfly-body"><g class="wing-l" style="transform-origin:30px 25px"><path d="M30 25C26 14 14 4 6 10c-4 4-1 12 6 16s14 3 18-1z" fill="url(#bw1)" opacity=".82"/><path d="M30 25c-5 3-14 10-12 17 2 5 10 4 12-1s3-12 0-16z" fill="url(#bw1b)" opacity=".75"/><path d="M30 25C24 16 16 10 12 14" stroke="#D07090" stroke-width=".5" fill="none" opacity=".5"/><path d="M30 25c-3 2-8 6-8 12" stroke="#D07090" stroke-width=".4" fill="none" opacity=".4"/></g><g class="wing-r" style="transform-origin:30px 25px"><path d="M30 25c4-11 16-21 24-15 4 4 1 12-6 16s-14 3-18-1z" fill="url(#bw1)" opacity=".82"/><path d="M30 25c5 3 14 10 12 17-2 5-10 4-12-1s-3-12 0-16z" fill="url(#bw1b)" opacity=".75"/><path d="M30 25c6-9 14-15 18-11" stroke="#D07090" stroke-width=".5" fill="none" opacity=".5"/><path d="M30 25c3 2 8 6 8 12" stroke="#D07090" stroke-width=".4" fill="none" opacity=".4"/></g><ellipse cx="30" cy="25" rx=".7" ry="7" fill="#5A2838" opacity=".9"/><path d="M29.3 18c-3-5-5-8-7-10" stroke="#5A2838" stroke-width=".5" fill="none" opacity=".7"/><path d="M30.7 18c3-5 5-8 7-10" stroke="#5A2838" stroke-width=".5" fill="none" opacity=".7"/><circle cx="22.3" cy="8" r=".8" fill="#5A2838" opacity=".6"/><circle cx="37.7" cy="8" r=".8" fill="#5A2838" opacity=".6"/></g></svg>'
-    },
-    {// золотая
-      sz:32,flap:.3,
-      svg:'<svg viewBox="0 0 60 50"><defs><linearGradient id="bw2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8D48B"/><stop offset="100%" stop-color="#C9A84C"/></linearGradient><linearGradient id="bw2b" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#D4BC6A"/><stop offset="100%" stop-color="#A08030"/></linearGradient></defs><g class="bfly-body"><g class="wing-l" style="transform-origin:30px 25px"><path d="M30 25C25 13 12 5 5 11c-4 5 0 13 8 16s13 2 17-2z" fill="url(#bw2)" opacity=".8"/><path d="M30 25c-4 4-12 11-9 17 2 4 9 3 11-2s1-11-2-15z" fill="url(#bw2b)" opacity=".72"/><path d="M30 25C23 15 14 10 10 14" stroke="#B09030" stroke-width=".4" fill="none" opacity=".4"/></g><g class="wing-r" style="transform-origin:30px 25px"><path d="M30 25c5-12 18-20 25-14 4 5 0 13-8 16s-13 2-17-2z" fill="url(#bw2)" opacity=".8"/><path d="M30 25c4 4 12 11 9 17-2 4-9 3-11-2s-1-11 2-15z" fill="url(#bw2b)" opacity=".72"/><path d="M30 25c7-10 16-15 20-11" stroke="#B09030" stroke-width=".4" fill="none" opacity=".4"/></g><ellipse cx="30" cy="25" rx=".6" ry="6.5" fill="#4A3010" opacity=".85"/><path d="M29.4 18.5c-2.5-4.5-4-7.5-6-9.5" stroke="#4A3010" stroke-width=".45" fill="none" opacity=".6"/><path d="M30.6 18.5c2.5-4.5 4-7.5 6-9.5" stroke="#4A3010" stroke-width=".45" fill="none" opacity=".6"/><circle cx="23.4" cy="9" r=".7" fill="#4A3010" opacity=".5"/><circle cx="36.6" cy="9" r=".7" fill="#4A3010" opacity=".5"/></g></svg>'
-    },
-    {// лавандовая
-      sz:28,flap:.38,
-      svg:'<svg viewBox="0 0 60 50"><defs><linearGradient id="bw3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D8C0E8"/><stop offset="100%" stop-color="#A878C0"/></linearGradient><linearGradient id="bw3b" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#C8B0D8"/><stop offset="100%" stop-color="#9068A8"/></linearGradient></defs><g class="bfly-body"><g class="wing-l" style="transform-origin:30px 25px"><path d="M30 25C27 15 16 6 8 11c-4 4 0 11 7 14s12 3 15 0z" fill="url(#bw3)" opacity=".78"/><path d="M30 25c-3 3-10 9-8 15 1 4 8 3 9-1s2-10 -1-14z" fill="url(#bw3b)" opacity=".7"/></g><g class="wing-r" style="transform-origin:30px 25px"><path d="M30 25c3-10 14-19 22-14 4 4 0 11-7 14s-12 3-15 0z" fill="url(#bw3)" opacity=".78"/><path d="M30 25c3 3 10 9 8 15-1 4-8 3-9-1s-2-10 1-14z" fill="url(#bw3b)" opacity=".7"/></g><ellipse cx="30" cy="25" rx=".6" ry="6" fill="#3A1848" opacity=".8"/><path d="M29.4 19c-2-4-4-7-5.5-9" stroke="#3A1848" stroke-width=".4" fill="none" opacity=".5"/><path d="M30.6 19c2-4 4-7 5.5-9" stroke="#3A1848" stroke-width=".4" fill="none" opacity=".5"/><circle cx="23.9" cy="10" r=".6" fill="#3A1848" opacity=".45"/><circle cx="36.1" cy="10" r=".6" fill="#3A1848" opacity=".45"/></g></svg>'
-    },
-    {// белая с розовыми краями
-      sz:34,flap:.32,
-      svg:'<svg viewBox="0 0 60 50"><defs><radialGradient id="bw4" cx=".3" cy=".3"><stop offset="0%" stop-color="#FFF8F0"/><stop offset="70%" stop-color="#F0D8E0"/><stop offset="100%" stop-color="#D8A0B0"/></radialGradient><radialGradient id="bw4b" cx=".4" cy=".3"><stop offset="0%" stop-color="#FFF0F0"/><stop offset="80%" stop-color="#E8C0CC"/><stop offset="100%" stop-color="#C88898"/></radialGradient></defs><g class="bfly-body"><g class="wing-l" style="transform-origin:30px 25px"><path d="M30 25C26 13 13 4 6 10c-5 5 0 13 7 16s14 3 17-1z" fill="url(#bw4)" opacity=".85" stroke="#D8A0B0" stroke-width=".3"/><path d="M30 25c-5 4-13 10-11 17 2 5 10 3 12-2s2-11-1-15z" fill="url(#bw4b)" opacity=".78" stroke="#D8A0B0" stroke-width=".3"/><path d="M30 25C24 16 16 11 11 14" stroke="#D0A0B0" stroke-width=".3" fill="none" opacity=".35"/></g><g class="wing-r" style="transform-origin:30px 25px"><path d="M30 25c4-12 17-21 24-15 5 5 0 13-7 16s-14 3-17-1z" fill="url(#bw4)" opacity=".85" stroke="#D8A0B0" stroke-width=".3"/><path d="M30 25c5 4 13 10 11 17-2 5-10 3-12-2s-2-11 1-15z" fill="url(#bw4b)" opacity=".78" stroke="#D8A0B0" stroke-width=".3"/><path d="M30 25c6-9 14-14 19-11" stroke="#D0A0B0" stroke-width=".3" fill="none" opacity=".35"/></g><ellipse cx="30" cy="25" rx=".65" ry="6.5" fill="#6A3848" opacity=".85"/><path d="M29.3 18.5c-3-5-5-8-6.5-10" stroke="#6A3848" stroke-width=".4" fill="none" opacity=".6"/><path d="M30.7 18.5c3-5 5-8 6.5-10" stroke="#6A3848" stroke-width=".4" fill="none" opacity=".6"/><circle cx="22.8" cy="8.5" r=".7" fill="#6A3848" opacity=".5"/><circle cx="37.2" cy="8.5" r=".7" fill="#6A3848" opacity=".5"/></g></svg>'
-    },
-  ];
-  var paths=['bflyPath','bflyPath2','bflyPath3','bflyPath','bflyPath2'];
-  var count=5;
-  for(var i=0;i<count;i++){
-    var b=butterflies[i%butterflies.length];
+  var gifs=['assets/butterfly_2.gif','assets/butterfly_3.gif'];
+  var sizes=[[280,220],[240,240]];
+  for(var i=0;i<gifs.length;i++){
     var el=document.createElement('div');
-    el.className='butterfly';
-    var sz=b.sz+(Math.random()*10-5);
-    var dur=22+Math.random()*16;
-    var delay=Math.random()*-dur;
-    var startX=5+Math.random()*90;
-    el.style.cssText='left:'+startX+'%;bottom:-50px;width:'+sz+'px;height:'+(sz*.83)+'px;--flap:'+b.flap+'s;animation-name:'+paths[i]+';animation-duration:'+dur+'s;animation-delay:'+delay+'s;';
-    el.innerHTML=b.svg;
+    el.className='butterfly-gif';
+    el.style.cssText='left:'+((i+1)*25)+'%;top:'+((i+1)*20)+'%;width:'+sizes[i][0]+'px;height:'+sizes[i][1]+'px;opacity:.6;';
+    el.innerHTML='<img src="'+gifs[i]+'" alt="">';
     c.appendChild(el);
   }
 })();
