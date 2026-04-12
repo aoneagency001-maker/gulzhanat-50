@@ -34,9 +34,9 @@ html{scroll-behavior:smooth}
 body{font-family:var(--font-body);color:var(--text);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* ===== LANGUAGE ===== */
-[data-lang="ru"]{display:none}
-body.lang-ru [data-lang="ru"]{display:initial}
-body.lang-ru [data-lang="kz"]{display:none}
+[data-lang="ru"]{display:none!important;font-size:0;width:0;height:0;overflow:hidden}
+body.lang-ru [data-lang="ru"]{display:inline!important;font-size:inherit;width:auto;height:auto;overflow:visible}
+body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:0;overflow:hidden}
 
 /* ===== 3D ENVELOPE ===== */
 .envelope-scene{
