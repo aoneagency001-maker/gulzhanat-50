@@ -90,6 +90,41 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
   100%{transform:translate(var(--drift),105vh) rotate(var(--spin));opacity:0}
 }
 
+/* ===== FLYING BUTTERFLIES ===== */
+#butterflies{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:4}
+.butterfly{
+  position:absolute;
+  width:30px;height:30px;
+  animation:bflyPath linear infinite;
+  filter:drop-shadow(0 2px 4px rgba(107,29,58,.15));
+}
+.butterfly svg{width:100%;height:100%}
+.butterfly .wing-l,.butterfly .wing-r{
+  transform-origin:center right;
+  animation:bflyFlap .4s ease-in-out infinite alternate;
+}
+.butterfly .wing-r{
+  transform-origin:center left;
+  animation-name:bflyFlapR;
+}
+@keyframes bflyFlap{
+  0%{transform:rotateY(0deg)}
+  100%{transform:rotateY(70deg)}
+}
+@keyframes bflyFlapR{
+  0%{transform:rotateY(0deg)}
+  100%{transform:rotateY(-70deg)}
+}
+@keyframes bflyPath{
+  0%{transform:translate(0,0) rotate(5deg);opacity:0}
+  5%{opacity:.7}
+  25%{transform:translate(20vw,-15vh) rotate(-8deg)}
+  50%{transform:translate(-10vw,-40vh) rotate(12deg)}
+  75%{transform:translate(15vw,-65vh) rotate(-5deg)}
+  95%{opacity:.5}
+  100%{transform:translate(-5vw,-105vh) rotate(8deg);opacity:0}
+}
+
 /* ===== BOTTOM BAR ===== */
 .bottombar{
   position:fixed;bottom:0;z-index:200;
@@ -378,6 +413,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
 
 <!-- FALLING PETALS -->
 <div id="petals" aria-hidden="true"></div>
+<div id="butterflies" aria-hidden="true"></div>
 
 <!-- 3D ENVELOPE -->
 <div class="envelope-scene" id="envelopeScene">
@@ -604,6 +640,30 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
         dur=7+Math.random()*9,delay=Math.random()*-dur;
     p.style.cssText='left:'+Math.random()*100+'%;width:'+sz+'px;height:'+(sz*1.35)+'px;background:'+colors[Math.floor(Math.random()*colors.length)]+';--drift:'+drift+'px;--spin:'+spin+'deg;animation-duration:'+dur+'s;animation-delay:'+delay+'s;border-radius:'+(Math.random()>.5?'80% 0 80% 0':'50% 0 50% 10%')+';transform:rotate('+Math.random()*360+'deg);';
     c.appendChild(p);
+  }
+})();
+
+/* ===== FLYING BUTTERFLIES ===== */
+(function(){
+  var c=document.getElementById('butterflies');
+  var colors=[
+    ['#D4A0A0','#C17878'],
+    ['#C9A84C','#A08030'],
+    ['#E8B4C8','#D48CA0'],
+    ['#B8A0D0','#9878B0'],
+  ];
+  var count=5;
+  for(var i=0;i<count;i++){
+    var col=colors[i%colors.length];
+    var el=document.createElement('div');
+    el.className='butterfly';
+    var sz=22+Math.random()*18;
+    var dur=18+Math.random()*14;
+    var delay=Math.random()*-dur;
+    var startX=10+Math.random()*80;
+    el.style.cssText='left:'+startX+'%;bottom:-40px;width:'+sz+'px;height:'+sz+'px;animation-duration:'+dur+'s;animation-delay:'+delay+'s;';
+    el.innerHTML='<svg viewBox="0 0 40 40" fill="none"><g class="wing-l"><path d="M20 20C16 12 6 8 3 14s4 14 17 6z" fill="'+col[0]+'" opacity=".8"/><path d="M20 20C14 22 6 30 10 34s16-2 10-14z" fill="'+col[1]+'" opacity=".7"/></g><g class="wing-r"><path d="M20 20c4-8 14-12 17-6s-4 14-17 6z" fill="'+col[0]+'" opacity=".8"/><path d="M20 20c6 2 14 10 10 14s-16-2-10-14z" fill="'+col[1]+'" opacity=".7"/></g><ellipse cx="20" cy="20" rx=".8" ry="6" fill="#4A2030"/></svg>';
+    c.appendChild(el);
   }
 })();
 
