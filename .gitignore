@@ -1,0 +1,10 @@
+# Ignore all flowers except used ones
+assets/flowers/*
+!assets/flowers/peony_clipart.png
+!assets/flowers/peony_flipped.png
+!assets/flowers/peony_left.png
+!assets/flowers/peony_right.png
+!assets/flowers/sakura_33.png
+!assets/flowers/sakura_37.png
+!assets/flowers/sakura_39.png
+.DS_Store
